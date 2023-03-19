@@ -28,6 +28,9 @@ HAVING COUNT(c.customer_id) > 300;
 
 ![Скриншот 2](https://github.com/PugachEV72/Images/blob/master/2023-03-19_15-16-27.png)
 
+SELECT COUNT(f.film_id) AS 'Кол-во фильмов'  
+FROM sakila.film f  
+WHERE f.`length` > (SELECT AVG(f.`length`) FROM sakila.film f);
 
 ---
 
@@ -38,6 +41,11 @@ HAVING COUNT(c.customer_id) > 300;
 
 ![Скриншот 3](https://github.com/PugachEV72/Images/blob/master/2023-03-19_15-25-10.png)
 
+SELECT date_format(p.payment_date, '%M') AS 'Месяц', SUM(p.amount) AS 'Сумма', COUNT(p.rental_id) AS 'Кол-во аренд'  
+FROM sakila.payment p  
+GROUP BY date_format(p.payment_date, '%M')  
+ORDER BY 2 DESC   
+LIMIT 1;
 
 ---
 ---
