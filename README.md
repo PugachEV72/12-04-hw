@@ -10,14 +10,14 @@
 
 ![Скриншот 1](https://github.com/PugachEV72/Images/blob/master/2023-03-19_15-12-51.png)
 
-`SELECT s.store_id, st.last_name AS "Фамилия сотрудника", st.first_name AS "Имя сотрудника", ci.city AS "Город нахождения", COUNT(c.customer_id) AS "Кол-во пользователей"
-FROM sakila.store s
-JOIN sakila.customer c ON s.store_id = c.store_id
-JOIN sakila.staff st ON s.manager_staff_id = st.staff_id 
-JOIN sakila.address a ON s.address_id = a.address_id
-JOIN sakila.city ci ON a.city_id = ci.city_id
-GROUP BY s.store_id
-HAVING COUNT(c.customer_id) > 300;`
+SELECT s.store_id, st.last_name AS "Фамилия сотрудника", st.first_name AS "Имя сотрудника", ci.city AS "Город нахождения", COUNT(c.customer_id) AS "Кол-во пользователей"  
+FROM sakila.store s  
+JOIN sakila.customer c ON s.store_id = c.store_id  
+JOIN sakila.staff st ON s.manager_staff_id = st.staff_id   
+JOIN sakila.address a ON s.address_id = a.address_id  
+JOIN sakila.city ci ON a.city_id = ci.city_id  
+GROUP BY s.store_id  
+HAVING COUNT(c.customer_id) > 300;
 
 ---
 
